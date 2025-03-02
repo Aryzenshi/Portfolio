@@ -3,9 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Aaryav's Portfolio</title>
+    <link rel="stylesheet" href="style.css"> 
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="cursor"></div>
+    <header>
+        <div class="logo">My Portfolio</div>
+        <nav>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <ul>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#personal-life" class="nav-link">Personal Life</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="social-icons">
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/Aryzenshi" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/aaryav-rastogi" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </header>
     
+    <section id="about">
+        <div class="profile-pic"><img src="assets/mypic.jpg" alt="pic"></div>
+        <h1>About Me</h1>
+        <p>I am a CSE undergraduate (2nd year) from VIT Vellore.</p>
+        <p>Date of Birth: [Placeholder]</p>
+    </section>
+    
+    <section id="skills">
+        <h1>Skills</h1>
+        <ul>
+            <li>C</li>
+            <li>C++</li>
+            <li>Java</li>
+            <li>Python</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ul>
+    </section>
+    
+    <section id="projects">
+        <h1>Projects</h1>
+        <p>Coming Soon...</p>
+    </section>
+
+    <section id="personal-life">
+        <h1>Personal Life</h1>
+        <p>Here</p>
+    </section>
+    
+    <section id="contact">
+        <h1>Contact</h1>
+        <p>Email: <a href="#" class="email-link">aaryav.rastogi.2005@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/aaryav-rastogi" target="_blank">Aaryav Rastogi</a></p>
+        <p>GitHub: <a href="https://github.com/Aryzenshi" target="_blank">Aaryav Rastogi [Aryzenshi]</a></p>
+    </section>
 </body>
 </html>

@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+    cursor: none;
+}
+
+.cursor {
+    scale: 0.6;
+    position: fixed;
+    overflow: hidden;
+    filter: drop-shadow(0 0 1px black) drop-shadow(0 0 8px rgba(0, 0, 0, 0.8));
+    width: 40px;
+    height: 40px;
+    background: url('assets/cursor.png') no-repeat center;
+    background-size: contain;
+    pointer-events: none;
+    transition: transform 0.1s linear, left 0.05s linear, top 0.05s linear;
+    z-index: 9999;
+}
+
+.cursor.hovering-link {
+    scale: 1.1;
+    background: url('assets/hcursor.png') no-repeat center / contain;
+}
+
+body {
+    background: linear-gradient(to bottom, #011140, #0036a4, #000c24);
+    color: #fff;
+    line-height: 1.6;
+}
+
+header {
+    background: rgba(0, 1, 25, 0.845);
+    backdrop-filter: blur(50px);
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 12px 12px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    min-width: 155px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.curhead {
+    display: inline-block;
+    width: 8px;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+    color: #f39c12;
+    text-shadow: 0px 0px 8px currentColor;
+}
+
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #ccc;
+    position: relative;
+    margin-left: auto;
+}
+.hamburger:hover {
+    color: #fff;
+}
+
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+    gap: 5px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-inline-start: -10px;
+    background: none;
+}
+
+nav ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 15px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #fff;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: #ccc;
+    font-size: 22px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #fff;
+}
+
+section {
+    padding: 10vh 5%;
+    max-width: 90%;
+    margin: 15vh auto 5vh;
+    padding-top: 80px;
+    scroll-margin-top: 100px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: #f39c12;
+    border-bottom: 2px solid #4fa3ff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    background: rgba(255, 255, 255, 0.1);
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.profile-pic {
+    scale: 1.0;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px #49a8c6;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #49a8c6;
+}
+
+@media (max-width: 900px) {
+    .hamburger {
+        display: flex;
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: translateX(25px);
+        margin-left: auto;
+        padding: 1%;
+    }
+    header {
+        flex-direction: row;
+        padding: 10px 5%;
+        text-align: center;
+    }
+    nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 5%;
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 10px;
+        padding: 10px;
+        width: 200px;
+        text-align: center;
+    }
+    section {
+        padding: 8vh 5%;
+        max-width: 95%;
+    }
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+    nav ul.active {
+        display: flex;
+    }
+}

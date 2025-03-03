@@ -7,29 +7,46 @@
     cursor: none;
 }
 
-.cursor {
-    scale: 0.6;
-    position: fixed;
-    overflow: hidden;
-    filter: drop-shadow(0 0 1px black) drop-shadow(0 0 8px rgba(0, 0, 0, 0.8));
-    width: 40px;
-    height: 40px;
-    background: url('assets/cursor.png') no-repeat center;
-    background-size: contain;
-    pointer-events: none;
-    transition: transform 0.1s linear, left 0.05s linear, top 0.05s linear;
-    z-index: 9999;
+html {
+    scroll-padding-top: 100px;
 }
 
-.cursor.hovering-link {
-    scale: 1.1;
-    background: url('assets/hcursor.png') no-repeat center / contain;
+.cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    background-color: #b2b8fc;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    border: 1px solid #959df4;
+    box-shadow: 0 0 5px black;
+    transition: border-radius 0.5s ease-in-out;
+}
+  
+.cursor__follower {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    transition: transform 0.4s ease-out;
+    z-index: 9998;
+}
+
+a:hover ~ .cursor {
+    border-radius: 10% 50% 50% 50%;
 }
 
 body {
-    background: linear-gradient(to bottom, #011140, #0036a4, #000c24);
+    background: linear-gradient(to bottom, #a1b1ff, #cbc2f7, #a996ff);
     color: #fff;
     line-height: 1.6;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 header {
@@ -47,6 +64,15 @@ header {
     padding: 15px 5%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     border-radius: 0 0 12px 12px;
+}
+
+img {
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: auto;
 }
 
 .logo {
@@ -73,6 +99,9 @@ a {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease, text-shadow 0.3s ease;
+    pointer-events: auto;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 a:hover {
@@ -80,11 +109,9 @@ a:hover {
     text-shadow: 0px 0px 8px currentColor;
 }
 
-
 .hamburger {
     display: none;
     font-size: 24px;
-    cursor: pointer;
     background: none;
     border: none;
     color: #ccc;
@@ -93,6 +120,7 @@ a:hover {
 }
 .hamburger:hover {
     color: #fff;
+    text-shadow: 0px 0px 8px currentColor;
 }
 
 nav {
@@ -145,41 +173,42 @@ nav ul li a:hover {
 }
 
 section {
+    position: relative;
     padding: 10vh 5%;
     max-width: 90%;
-    margin: 15vh auto 5vh;
-    padding-top: 80px;
-    scroll-margin-top: 100px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
+    margin: 10vh auto 5vh;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
 }
 
-h1 {
-    color: #f39c12;
-    border-bottom: 2px solid #4fa3ff;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to left, #7d6eff, #1717c0);
+    backdrop-filter: blur(20px);
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
 }
 
-ul {
-    list-style: none;
+.about-section {
+    margin-top: 15vh;
+    display: flex;
+    align-items: center;
+    gap: 50px;
 }
 
-ul li {
-    background: rgba(255, 255, 255, 0.1);
-    display: inline-block;
-    padding: 10px 15px;
-    margin: 5px;
-    border-radius: 5px;
+.about-text {
+    flex: 1;
 }
 
 .profile-pic {
     scale: 1.0;
     overflow: hidden;
-    width: 200px;
-    height: 200px;
+    width: 210px;
+    height: 210px;
     border-radius: 50%;
     margin-bottom: 20px;
     display: flex;
@@ -195,6 +224,9 @@ ul li {
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .profile-pic:hover {
@@ -202,7 +234,30 @@ ul li {
     box-shadow: 0 0 20px #49a8c6;
 }
 
-@media (max-width: 900px) {
+h1 {
+    color: #f39c12;
+    border-bottom: 2px solid #4fa3ff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-left: 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    background: rgba(255, 255, 255, 0.1);
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
     .hamburger {
         display: flex;
         position: relative;

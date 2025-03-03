@@ -1,46 +1,50 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const cursor = document.querySelector('.cursor');
-    let prevX = 0, prevY = 0;
-    let rotation = 0;
-    
-    function showCursor() {
-        cursor.style.display = "block";
-    }
+    let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice) return; 
 
-    function hideCursor() {
-        cursor.style.display = "none";
-    }
+    const root = document.querySelector('html');
+
+    const cursor = document.createElement('div');
+    cursor.classList.add('cursor');
+    root.appendChild(cursor);
+
+    const follower = document.createElement('div');
+    follower.classList.add('cursor', 'cursor__follower');
+    root.appendChild(follower);
 
     window.addEventListener("mousemove", (e) => {
-        showCursor();
-
-        const { clientX: x, clientY: y, target } = e;
-        cursor.style.left = `${x}px`;
-        cursor.style.top = `${y}px`;
-
-        const deltaX = x - prevX;
-        const deltaY = y - prevY;
-
-        if (Math.abs(deltaX) > 2 || Math.abs(deltaY) > 2) {
-            let targetAngle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
-            targetAngle = Math.max(-30, Math.min(30, targetAngle));
-
-            if (target.tagName === "A" && target.hasAttribute("href")) {
-                targetAngle = 0;
-                cursor.classList.add("hovering-link");
-            } else {
-                cursor.classList.remove("hovering-link");
-            }
-
-            rotation = rotation * 0.8 + targetAngle * 0.2;
-            cursor.style.transform = `rotate(${rotation}deg)`;
-        }
-
-        prevX = x;
-        prevY = y;
+        setPosition(cursor, e);
+        setPositionWithDelay(follower, e);
     });
 
-    window.addEventListener("touchstart", hideCursor);
+    function setPosition(element, e) {
+        element.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+    }
+
+    function setPositionWithDelay(element, e) {
+        setTimeout(() => {
+            element.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+        }, 50);
+    }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const cursor = document.querySelector(".cursor");
+    const follower = document.querySelector(".cursor__follower");
+
+    document.querySelectorAll("a").forEach(link => {
+        link.addEventListener("mouseenter", () => {
+            cursor.style.borderRadius = "10% 50% 50% 50%";
+        });
+
+        link.addEventListener("mouseleave", () => {
+            cursor.style.borderRadius = "50%";
+        });
+    });
+});
+
+document.querySelectorAll("img").forEach(img => {
+    img.addEventListener("dragstart", event => event.preventDefault());
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -78,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-
 
 function toggleMenu() {
     const navLinks = document.querySelector("nav ul");

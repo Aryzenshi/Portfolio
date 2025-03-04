@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aaryav's Portfolio</title>
-    <link rel="stylesheet" href="style.css"> 
-    <script src="script.js"></script>
+    <title>Aaryav Rastogi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <div class="logo">My Portfolio</div>
+        <div class="logo">My Portfolio.</div>
         <nav>
-            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <a class="hamburger" onclick="toggleMenu()" aria-label="Toggle Menu">☰</a>
             <ul>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
@@ -21,23 +22,30 @@
             </ul>
         </nav>
         <div class="social-icons">
-            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://github.com/Aryzenshi" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/aaryav-rastogi" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://instagram.com/aar_yav_20" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/Aryzenshi" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/aaryav-rastogi" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
         </div>
     </header>
     
+    <div class="cover" id="home">
+        <div class="cover-content">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Hi, I'm Aaryav Rastogi. A passionate CSE undergraduate from VIT Vellore.</p>
+            <a href="#about" class="cta-button">Explore More</a>
+        </div>
+    </div>
+
     <section id="about" class="about-section">
-        <a href="#personal-life"><img src="assets/mypic.jpg" alt="Profile Picture" class="profile-pic"></a>
+        <a href="#personal-life"><img src="assets/profile.jpg" alt="Profile Picture" class="profile-pic"></a>
         <div class="about-text">
             <h1>About Me</h1>
             <p>I am a CSE undergraduate (2nd year) from VIT Vellore.</p>
-            <p>Date of Birth: [Placeholder]</p>
+            <p>Date of Birth: 6-Dec-2005</p>
         </div>
     </section>
     
-    
-    <section id="skills">
+    <section id="skills" class="fade-in" data-bg-image="url('assets/skills.jpg')">
         <h1>Skills</h1>
         <ul>
             <li>C</li>
@@ -50,21 +58,33 @@
         </ul>
     </section>
     
-    <section id="projects">
+    <section id="projects" class="fade-in" data-bg-image="url('assets/projects.jpg')">
         <h1>Projects</h1>
-        <p>Coming Soon...</p>
+        <div class="project">
+            <h2>Discord Python Bot</h2>
+            <p>A private repository on github. The bot is made completely in python with SQL integration for managing user logins and a captcha while registering.</p>
+        </div>
+        <br>
+        <div class="project">
+            <h2>Project 2</h2>
+            <p>Description.</p>
+        </div>
     </section>
 
-    <section id="personal-life">
+    <section id="personal-life" class="fade-in" data-bg-image="url('assets/life.jpg')">
         <h1>Personal Life</h1>
         <p>Here</p>
     </section>
     
-    <section id="contact">
+    <section id="contact" class="fade-in" data-bg-image="url('assets/contact.jpg')">
         <h1>Contact</h1>
         <p>Email: <a href="#" class="email-link">aaryav.rastogi.2005@gmail.com</a></p>
         <p>LinkedIn: <a href="https://linkedin.com/in/aaryav-rastogi" target="_blank">Aaryav Rastogi</a></p>
         <p>GitHub: <a href="https://github.com/Aryzenshi" target="_blank">Aaryav Rastogi [Aryzenshi]</a></p>
     </section>
+
+    <footer>
+        <p>&copy; 2025 Aaryav Rastogi. All rights reserved.</p>
+    </footer>
 </body>
 </html>

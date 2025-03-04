@@ -306,7 +306,7 @@ section .content {
 .about-section {
     margin-top: 15vh;
     display: flex;
-    height: 75vh;
+    height: auto;
     align-items: center;
     gap: 50px;
     position: relative;
@@ -453,5 +453,9 @@ a:hover {
     .profile-pic {
         width: 150px;
         height: 150px;
+    }
+
+    .about-section {
+        flex-direction: column;
     }
 }

@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    if (isTouchDevice) return; 
-
     const root = document.querySelector('html');
 
     const cursor = document.createElement('div');
@@ -12,11 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     follower.classList.add('cursor', 'cursor__follower');
     root.appendChild(follower);
 
-    window.addEventListener("mousemove", (e) => {
-        setPosition(cursor, e);
-        setPositionWithDelay(follower, e);
-    });
-
     function setPosition(element, e) {
         element.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
     }
@@ -26,6 +18,33 @@ document.addEventListener("DOMContentLoaded", () => {
             element.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
         }, 50);
     }
+
+    function hideCustomCursor() {
+        cursor.style.display = 'none';
+        follower.style.display = 'none';
+    }
+
+    function showCustomCursor() {
+        cursor.style.display = 'block';
+        follower.style.display = 'block';
+    }
+
+    let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    if (isTouchDevice) {
+        document.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            hideCustomCursor();
+        });
+
+        document.addEventListener('touchend', showCustomCursor);
+        document.addEventListener('touchcancel', showCustomCursor);
+    }
+
+    window.addEventListener("mousemove", (e) => {
+        setPosition(cursor, e);
+        setPositionWithDelay(follower, e);
+    });
 });
 
 document.addEventListener("DOMContentLoaded", () => {

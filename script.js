@@ -1,49 +1,54 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const root = document.querySelector('html');
+    let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    let hasMouse = window.matchMedia("(pointer:fine)").matches;
+    let cursor, follower;
 
-    const cursor = document.createElement('div');
-    cursor.classList.add('cursor');
-    root.appendChild(cursor);
+    function createCursor() {
+        if (cursor) return;
+        cursor = document.createElement('div');
+        cursor.classList.add('cursor');
+        document.body.appendChild(cursor);
 
-    const follower = document.createElement('div');
-    follower.classList.add('cursor', 'cursor__follower');
-    root.appendChild(follower);
-
-    function setPosition(element, e) {
-        element.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+        follower = document.createElement('div');
+        follower.classList.add('cursor', 'cursor__follower');
+        document.body.appendChild(follower);
     }
 
-    function setPositionWithDelay(element, e) {
+    function showCursor() {
+        if (!cursor) createCursor();
+        cursor.style.display = "block";
+        follower.style.display = "block";
+    }
+
+    function hideCursor() {
+        if (cursor && follower) {
+            cursor.style.display = "none";
+            follower.style.display = "none";
+        }
+    }
+
+    function updateCursor(e) {
+        cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
         setTimeout(() => {
-            element.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+            follower.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
         }, 50);
     }
 
-    function hideCustomCursor() {
-        cursor.style.display = 'none';
-        follower.style.display = 'none';
+    if (hasMouse) {
+        showCursor();
+        window.addEventListener("mousemove", updateCursor);
+    } else {
+        hideCursor();
     }
 
-    function showCustomCursor() {
-        cursor.style.display = 'block';
-        follower.style.display = 'block';
-    }
-
-    let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-    if (isTouchDevice) {
-        document.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            hideCustomCursor();
-        });
-
-        document.addEventListener('touchend', showCustomCursor);
-        document.addEventListener('touchcancel', showCustomCursor);
-    }
-
-    window.addEventListener("mousemove", (e) => {
-        setPosition(cursor, e);
-        setPositionWithDelay(follower, e);
+    window.matchMedia("(pointer:fine)").addEventListener("change", (e) => {
+        if (e.matches) {
+            showCursor();
+            window.addEventListener("mousemove", updateCursor);
+        } else {
+            hideCursor();
+            window.removeEventListener("mousemove", updateCursor);
+        }
     });
 });
 

@@ -38,6 +38,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: var(--body-font);
+    font-weight: 600;
     scroll-behavior: smooth;
     cursor: none;
 }
@@ -76,6 +77,7 @@ img {
     background-image: url('assets/landing.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -84,9 +86,12 @@ img {
 }
 .cover-content h1 {
     font-family: var(--heading-font);
-    font-size: 48px;
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(to top, #85f7ff, #f0feff);
+    background-clip: text;
+    font-size: 56px;
     margin-bottom: 20px;
-    color: #f0feff;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 .cover-content p {
     font-size: 24px;
@@ -100,10 +105,11 @@ img {
     border-radius: 25px;
     text-decoration: none;
     font-size: 18px;
-    transition: background 0.5s ease-in-out;
+    transition: background 0.5s ease, box-shadow 0.5s ease;
 }
 .cta-button:hover {
-    background: #2b2d42;
+    background: #282a3a;
+    box-shadow: 0px 0px 15px #4a4e69cc;
 }
 a.cta-button:hover {
     color: #fff;
@@ -114,9 +120,9 @@ a.cta-button:hover {
     position: fixed;
     left: 0;
     top: 0;
-    width: 15px;
-    height: 15px;
-    background-color: #9a8c98;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(197, 165, 193);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
@@ -145,7 +151,7 @@ footer {
     margin-top: 50px;
 }
 header {
-    background: rgba(34, 34, 59, 0.845);
+    background: transparent;
     backdrop-filter: blur(50px);
     color: #fff;
     position: fixed;
@@ -159,6 +165,10 @@ header {
     padding: 15px 5%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     border-radius: 0 0 12px 12px;
+    transition: background 0.5s ease;
+}
+.scrolled {
+    background: rgba(34, 34, 59, 0.845);
 }
 .logo {
     font-size: 24px;

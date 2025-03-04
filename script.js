@@ -123,3 +123,8 @@ document.querySelector(".logo").addEventListener("click", (event) => {
     event.preventDefault();
     document.querySelector("#home").scrollIntoView({ behavior: "smooth" });
 });
+
+window.addEventListener("scroll", function () {
+    let header = document.querySelector("header");
+    header.classList.toggle("scrolled", window.scrollY > 100);
+});

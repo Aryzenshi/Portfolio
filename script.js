@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     let hasMouse = window.matchMedia("(pointer:fine)").matches;
     let cursor, follower;
 
@@ -65,6 +64,16 @@ document.addEventListener("DOMContentLoaded", () => {
             cursor.style.borderRadius = "50%";
         });
     });
+
+    const switchButton = document.querySelector(".switch");
+
+    switchButton.addEventListener("mouseenter", () => {
+        cursor.style.borderRadius = "0% 100% 0% 100%";
+    });
+    
+    switchButton.addEventListener("mouseleave", () => {
+        cursor.style.borderRadius = "50%";
+    });
 });
 
 document.querySelectorAll("img").forEach(img => {
@@ -86,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    logo.innerHTML = '<span class="cursor">|</span>';
+    logo.innerHTML = '<span class="curhead">|</span>';
     typeEffect();
 });
 
@@ -151,4 +160,25 @@ document.querySelector(".logo").addEventListener("click", (event) => {
 window.addEventListener("scroll", function () {
     let header = document.querySelector("header");
     header.classList.toggle("scrolled", window.scrollY > 100);
+});
+
+// DARK MODE TOGGLE 'ON' BY DEFAULT
+const toggleSwitch = document.getElementById("theme-toggle");
+const body = document.body;
+
+if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark-mode");
+    toggleSwitch.checked = true;
+}
+
+toggleSwitch.addEventListener("change", () => {
+    body.classList.toggle("dark-mode");
+
+    if (body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        toggleSwitch.checked = true;
+    } else {
+        localStorage.setItem("theme", "light");
+        toggleSwitch.checked = false;
+    }
 });

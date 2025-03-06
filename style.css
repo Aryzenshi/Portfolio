@@ -1,10 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 @font-face {
     font-family: 'logo-font';
     src: url("assets/Redhawk.otf") format("opentype");
-}
-@font-face {
-    font-family: 'body-font';
-    src: url("assets/Montserrat.ttf") format("truetype");
 }
 @font-face {
     font-family: 'heading-font';
@@ -13,7 +11,7 @@
 
 :root {
     --logo-font: 'logo-font', sans-serif;
-    --body-font: 'body-font', sans-serif;
+    --body-font: 'Montserrat', sans-serif;
     --heading-font: 'heading-font', sans-serif;
     --bg-color: #e6dbd5;
     --text-color: #4a4e69;
@@ -555,8 +553,9 @@ a:hover {
     }
 
     .profile-pic {
-        width: 150px;
-        height: 150px;
+        width: 200px;
+        height: 200px;
+        margin-bottom: 0;
     }
 
     .about-section {

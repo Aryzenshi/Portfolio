@@ -113,10 +113,13 @@ img {
     font-family: var(--heading-font);
     -webkit-text-fill-color: transparent;
     background: linear-gradient(to top, #85f7ff, #f0feff);
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
     background-clip: text;
     font-size: 56px;
     margin-bottom: 20px;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    color: transparent;
 }
 .cover-content p {
     font-size: 24px;

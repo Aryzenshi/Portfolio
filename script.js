@@ -169,6 +169,8 @@ const body = document.body;
 if (localStorage.getItem("theme") === "dark") {
     body.classList.add("dark-mode");
     toggleSwitch.checked = true;
+} else {
+    localStorage.setItem("theme", "dark");
 }
 
 toggleSwitch.addEventListener("change", () => {

@@ -169,18 +169,22 @@ const body = document.body;
 if (localStorage.getItem("theme") === "dark") {
     body.classList.add("dark-mode");
     toggleSwitch.checked = true;
-} else {
-    localStorage.setItem("theme", "dark");
 }
 
-toggleSwitch.addEventListener("change", () => {
-    body.classList.toggle("dark-mode");
+document.addEventListener("DOMContentLoaded", () => {
+    const themeToggle = document.getElementById("theme-toggle");
+    const body = document.body;
 
-    if (body.classList.contains("dark-mode")) {
-        localStorage.setItem("theme", "dark");
-        toggleSwitch.checked = true;
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme) {
+        body.classList.toggle("dark-mode", savedTheme === "dark");
     } else {
-        localStorage.setItem("theme", "light");
-        toggleSwitch.checked = false;
+        body.classList.add("dark-mode");
+        localStorage.setItem("theme", "dark");
     }
+    themeToggle.addEventListener("click", () => {
+        const isDarkMode = body.classList.toggle("dark-mode");
+        localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+    });
 });

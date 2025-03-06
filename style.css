@@ -275,6 +275,9 @@ nav ul li a:hover {
 .social-icons a:hover {
     color: #fff;
 }
+#mobile-insta {
+    display: none;
+}
 
 /* GENERAL SECTIONS */
 .fade-in {
@@ -463,7 +466,6 @@ a:hover {
     right: 0;
     bottom: 0;
     background-color: var(--bg-color);
-    transform: rotate(0deg);
     transition: background-color 0.3s ease, transform 0.5s ease;
     border-radius: 34px;
 }
@@ -480,7 +482,6 @@ a:hover {
 }
 .switch__input:checked ~ .switch__inner {
     background-color: var(--bg-color);
-    transform: rotate(360deg);
 }
 .switch__input:checked ~ .switch__inner:before {
     transform: translateX(26px);
@@ -543,13 +544,12 @@ a:hover {
     .scrolled nav ul {
         background: rgba(0, 0, 0, 0.8);
     }
-
     nav ul.active {
         display: flex;
     }
 
     .social-icons {
-        margin-left: 0;
+        display: none;
     }
 
     .profile-pic {
@@ -560,5 +560,10 @@ a:hover {
 
     .about-section {
         flex-direction: column;
+    }
+
+    #mobile-insta {
+        margin-top: 10px;
+        display: flex;
     }
 }

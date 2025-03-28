@@ -1,3 +1,4 @@
+// Cursor visibility on touch devices and laptops
 document.addEventListener("DOMContentLoaded", () => {
     let hasMouse = window.matchMedia("(pointer:fine)").matches;
     let cursor, follower;
@@ -51,35 +52,56 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// Cursor interactive style changes
 document.addEventListener("DOMContentLoaded", () => {
     const cursor = document.querySelector(".cursor");
-    const follower = document.querySelector(".cursor__follower");
+    
+    const links = document.querySelectorAll("a");
+    const switchButton = document.querySelector(".switch");
+    const carouselbtnLeft = document.querySelector(".left-btn");
+    const carouselbtnRight = document.querySelector(".right-btn");
+    
+    const mouseExit = document.querySelectorAll("a, .switch, .left-btn, .right-btn")
 
-    document.querySelectorAll("a").forEach(link => {
+    links.forEach(link => {
         link.addEventListener("mouseenter", () => {
             cursor.style.borderRadius = "10% 50% 50% 50%";
         });
-
-        link.addEventListener("mouseleave", () => {
-            cursor.style.borderRadius = "50%";
-        });
     });
-
-    const switchButton = document.querySelector(".switch");
-
     switchButton.addEventListener("mouseenter", () => {
         cursor.style.borderRadius = "0% 100% 0% 100%";
     });
-    
-    switchButton.addEventListener("mouseleave", () => {
-        cursor.style.borderRadius = "50%";
+
+    carouselbtnLeft.addEventListener("mouseenter", () => {
+        cursor.style.borderRadius = "10% 50% 50% 10%";
+    });
+    carouselbtnRight.addEventListener("mouseenter", () => {
+        cursor.style.borderRadius = "50% 10% 10% 50%";
+    });
+
+    mouseExit.forEach((exit) => {
+        exit.addEventListener("mouseleave", () => {
+            cursor.style.borderRadius = "50%";
+        });
     });
 });
 
+// Drag prevention
 document.querySelectorAll("img").forEach(img => {
     img.addEventListener("dragstart", event => event.preventDefault());
 });
 
+// NAVBAR
+document.querySelector(".logo").addEventListener("click", (event) => {
+    event.preventDefault();
+    document.querySelector("#home").scrollIntoView({ behavior: "smooth" });
+});
+window.addEventListener("scroll", function () {
+    let header = document.querySelector("header");
+    header.classList.toggle("scrolled", window.scrollY > 100);
+});
+
+// Typing effect of My Portfolio.
 document.addEventListener("DOMContentLoaded", () => {
     const logo = document.querySelector('.logo');
     const text = "My Portfolio.";
@@ -99,6 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
     typeEffect();
 });
 
+// Email link Regex
 document.addEventListener("DOMContentLoaded", () => {
     const emailLink = document.querySelector(".email-link");
 
@@ -116,11 +139,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// Hamburger menu toggle function
 function toggleMenu() {
     const navLinks = document.querySelector("nav ul");
     navLinks.classList.toggle("active");
 }
-
 document.addEventListener("click", function (event) {
     const navLinks = document.querySelector("nav ul");
     const hamburger = document.querySelector(".hamburger");
@@ -130,6 +153,7 @@ document.addEventListener("click", function (event) {
     }
 });
 
+// Section background image loader
 document.querySelectorAll("section").forEach((section) => {
     const bgImage = section.getAttribute("data-bg-image");
     if (bgImage) {
@@ -137,6 +161,7 @@ document.querySelectorAll("section").forEach((section) => {
     }
 });
 
+// Fade in effect on section load
 document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll(".fade-in");
 
@@ -150,16 +175,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { threshold: 0.1 });
 
     sections.forEach(section => observer.observe(section));
-});
-
-document.querySelector(".logo").addEventListener("click", (event) => {
-    event.preventDefault();
-    document.querySelector("#home").scrollIntoView({ behavior: "smooth" });
-});
-
-window.addEventListener("scroll", function () {
-    let header = document.querySelector("header");
-    header.classList.toggle("scrolled", window.scrollY > 100);
 });
 
 // DARK MODE TOGGLE 'ON' BY DEFAULT
@@ -187,4 +202,109 @@ document.addEventListener("DOMContentLoaded", () => {
         const isDarkMode = body.classList.toggle("dark-mode");
         localStorage.setItem("theme", isDarkMode ? "dark" : "light");
     });
+});
+
+
+// Projects carousel
+document.addEventListener("DOMContentLoaded", () => {
+    const carousel = document.querySelector(".projects-carousel");
+    const slides = document.querySelectorAll(".project-block");
+    const leftBtn = document.querySelector(".left-btn");
+    const rightBtn = document.querySelector(".right-btn");
+    const dotsContainer = document.querySelector(".carousel-dots");
+
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    let autoScrollInterval;
+    let isScrolling = false;
+
+    function updateSlides() {
+        slides.forEach((slide, index) => {
+            if (index === currentIndex) {
+                slide.classList.add("active");
+            } else {
+                slide.classList.remove("active");
+            }
+        });
+    }
+
+    function updateDots() {
+        dotsContainer.innerHTML = "";
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement("div");
+            dot.classList.add("dot");
+            if (i === currentIndex) dot.classList.add("active");
+            dot.addEventListener("click", () => jumpToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function jumpToSlide(index) {
+        if (isScrolling) return;
+        isScrolling = true;
+
+        currentIndex = index;
+        const slideWidth = slides[0].clientWidth;
+        const scrollAmount = index * slideWidth;
+
+        carousel.scrollTo({
+            left: scrollAmount,
+            behavior: "smooth"
+        });
+
+        updateSlides();
+        updateDots();
+
+        setTimeout(() => {
+            isScrolling = false;
+        }, 500);
+    }
+
+    function autoScroll() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        jumpToSlide(currentIndex);
+    }
+
+    function startAutoScroll() {
+        clearInterval(autoScrollInterval);
+        autoScrollInterval = setInterval(autoScroll, 3000);
+    }
+
+    function pauseAutoScroll() {
+        clearInterval(autoScrollInterval);
+    }
+
+    leftBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        jumpToSlide(currentIndex);
+        pauseAutoScroll();
+    });
+
+    rightBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        jumpToSlide(currentIndex);
+        pauseAutoScroll();
+    });
+
+    carousel.addEventListener("mouseenter", pauseAutoScroll);
+    carousel.addEventListener("mouseleave", startAutoScroll);
+    dotsContainer.addEventListener("mouseenter", pauseAutoScroll);
+    dotsContainer.addEventListener("mouseleave", startAutoScroll);
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                startAutoScroll();
+            } else {
+                pauseAutoScroll();
+            }
+        });
+    }, { threshold: 0.9 });
+
+    const projectsSection = document.querySelector("#projects");
+    observer.observe(projectsSection);
+
+    startAutoScroll();
+    updateSlides();
+    updateDots();
 });

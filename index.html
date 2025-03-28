@@ -12,7 +12,7 @@
     <header>
         <div class="logo">My Portfolio.</div>
         <nav>
-            <a class="hamburger" onclick="toggleMenu()" aria-label="Toggle Menu">☰</a>
+            <a class="hamburger" onclick="toggleMenu()" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></a>
             <ul>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
@@ -55,7 +55,7 @@
         </div>
     </div>
 
-    <section id="about" class="about-section">
+    <section id="about" class="about-section fade-in">
         <a href="#personal-life"><img src="assets/profile.jpg" alt="Profile Picture" class="profile-pic"></a>
         <div class="about-text">
             <h1>About Me</h1>
@@ -77,17 +77,39 @@
         </ul>
     </section>
     
-    <section id="projects" class="fade-in" data-bg-image="url('assets/projects.jpg')">
+    <section id="projects" class="fade-in" data-bg-image="url('assets/1projects.jpg')">
         <h1>Projects</h1>
-        <div class="project">
-            <h2>Discord Python Bot</h2>
-            <p>A private repository on github. The bot is made completely in python with SQL integration for managing user logins and a captcha while registering.</p>
+        <div class="carousel-container">
+            <button class="carousel-btn left-btn">&#10094;</button>  
+            <div class="projects-carousel">
+                <div class="project-block">
+                    <h2>Discord Python Bot</h2>
+                    <p>A private repository on GitHub. The bot is made completely in Python with SQL integration for managing user logins and a captcha while registering.</p>
+                </div>
+                <div class="project-block">
+                    <h2>Valentine's Day Website Template</h2>
+                    <p>A website template for Valentine's Day!</p>
+                    <p>The website template is hosted on GitHub pages as well as the source code is available on GitHub.</p>
+                    <a href="https://aryzenshi.github.io/Valentine-s-Day/" target="_blank" class="project-link"><i class="fa-solid fa-globe"></i> Valentine's Day Template</a>
+                    <a href="https://github.com/Aryzenshi/Valentine-s-Day" target="_blank" class="project-link"><i class="fab fa-github"></i> Source Code</a>
+                </div>
+                <div class="project-block">
+                    <h2>Parking Lot Management System</h2>
+                    <p>A simple parking lot managing system made in c++.</p>
+                    <p>This is a simple console-based Parking Lot Management System written in C++. It allows for the management of parking slots for both cars and bikes, keeping track of vehicle entry, exit, and displaying parking status.</p>
+                    <a href="https://github.com/Aryzenshi/ParkingLotSystem.git" target="_blank" class="project-link"><i class="fab fa-github"></i> Parking Lot Management System</a>
+                </div>
+                <div class="project-block">
+                    <h2>Hotel Management System</h2>
+                    <p>A simple console-based hotel managing system made in python application designed to manage hotel room bookings, check-ins, and check-outs efficiently.</p>
+                    <p>This tool allows a secure login to the SQL server and access rules set up by the hotel.</p>
+                    <p></p>
+                    <a href="https://github.com/Aryzenshi/HMS" target="_blank" class="project-link"><i class="fab fa-github"></i> Hotel Management System</a>
+                </div>
+            </div>
+            <button class="carousel-btn right-btn">&#10095;</button>  
         </div>
-        <br>
-        <div class="project">
-            <h2>Project 2</h2>
-            <p>Description.</p>
-        </div>
+        <div class="carousel-dots"></div>
     </section>
 
     <section id="personal-life" class="fade-in" data-bg-image="url('assets/life.jpg')">
@@ -97,10 +119,10 @@
     
     <section id="contact" class="fade-in" data-bg-image="url('assets/contact.jpg')">
         <h1>Contact Me</h1>
-        <p>Email: <a href="#" class="email-link">aaryav.rastogi.2005@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/aaryav-rastogi" target="_blank">Aaryav Rastogi</a></p>
-        <p>GitHub: <a href="https://github.com/Aryzenshi" target="_blank">Aaryav Rastogi [Aryzenshi]</a></p>
-        <p id="mobile-insta"><i class="fab fa-instagram"> : <a href="https://instagram.com/aar_yav_20" target="_blank"> @aar_yav_20</a></i></p>
+        <p><i class="fa-regular fa-envelope"></i> Email: <a href="#" class="email-link">aaryav.rastogi.2005@gmail.com</a></p>
+        <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://linkedin.com/in/aaryav-rastogi" target="_blank">Aaryav Rastogi</a></p>
+        <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/Aryzenshi" target="_blank">Aaryav Rastogi [Aryzenshi]</a></p>
+        <p id="mobile-insta"><i class="fab fa-instagram"></i> Instagram: <a href="https://instagram.com/aar_yav_20" target="_blank"> @aar_yav_20</a></i></p>
     </section>
 
     <footer>

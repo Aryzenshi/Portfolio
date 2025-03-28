@@ -695,4 +695,16 @@ a:hover {
     #mobile-insta {
         display: block;
     }
+
+    .project-block {
+        font-size: 0.8em;
+    }
+    .project-link {
+        transform: scale(0.8);
+    }
+    .project-block h2 {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
 }

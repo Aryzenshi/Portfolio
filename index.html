@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -66,15 +67,16 @@
     
     <section id="skills" class="fade-in" data-bg-image="url('assets/skills.jpg')">
         <h1>Skills</h1>
-        <ul>
-            <li>C</li>
-            <li>C++</li>
-            <li>Java</li>
-            <li>Python</li>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-        </ul>
+        <div class="skills-container">
+            <div class="skill-card" data-skill="C" data-percent="70"></div>
+            <div class="skill-card" data-skill="C++" data-percent="80"></div>
+            <div class="skill-card" data-skill="Java" data-percent="75"></div>
+            <div class="skill-card" data-skill="Python" data-percent="95"></div>
+            <div class="skill-card" data-skill="HTML" data-percent="90"></div>
+            <div class="skill-card" data-skill="CSS" data-percent="90"></div>
+            <div class="skill-card" data-skill="JavaScript" data-percent="80"></div>
+            <div class="skill-card" data-skill="ReactJS" data-percent="10"></div>
+        </div>
     </section>
     
     <section id="projects" class="fade-in" data-bg-image="url('assets/1projects.jpg')">

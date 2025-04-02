@@ -14,13 +14,14 @@
     --body-font: 'Montserrat', sans-serif;
     --heading-font: 'heading-font', sans-serif;
     --bg-color: #e6dbd5;
+    --skills-bg: #e6dbd56a;
     --text-color: #4a4e69;
     --grad-sect-color: rgba(255, 244, 248, 0.5);
     --box-shad: rgba(0, 0, 0, 0.1);
     --img-shad: #4a4e69;
     --link-color: #5e565d;
-    --nav-color: #000;
-    --media-navul: rgba(255, 255, 255, 0.8);
+    --nav-color: #3a3a3a;
+    --media-navul: rgba(4, 3, 3, 0.8);
 }
 ::-webkit-scrollbar {
     width: 5px;
@@ -49,8 +50,9 @@
 }
 .dark-mode {
     --bg-color: #2c2a29;
+    --skills-bg: #2c2a296a;
     --text-color: #eef6ff;
-    --grad-sect-color: rgba(0, 0, 0, 0.3);
+    --grad-sect-color: rgba(255, 255, 255, 0.3);
     --box-shad: rgba(255, 255, 255, 0.1);
     --img-shad: #929ad1;
     --link-color: #e6d5e4;
@@ -231,7 +233,7 @@ header {
     margin-right: 10px;
 }
 .hamburger:hover {
-    color: #fff;
+    color: var(--nav-color);
     text-shadow: 0px 0px 8px currentColor;
 }
 nav {
@@ -261,7 +263,7 @@ nav ul li a {
     transition: color 0.3s;
 }
 nav ul li a:hover {
-    color: #fff;
+    color: var(--nav-color);
 }
 
 /* SOCIAL ICONS */
@@ -276,7 +278,7 @@ nav ul li a:hover {
     transition: color 0.3s;
 }
 .social-icons a:hover {
-    color: #fff;
+    color: var(--nav-color);
 }
 #mobile-insta {
     display: none;
@@ -645,6 +647,32 @@ a:hover {
     border: 0;
 }
 
+/* SKILLS */
+.skills-container {
+    margin: auto;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 80%;
+}
+.skill-card {
+    background-color: var(--skills-bg);
+    backdrop-filter: blur(20px);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+canvas {
+    width: 100px !important;
+    height: 100px !important;
+    margin-bottom: 10px;
+}
+
 /* SMALL DISPLAYS */
 @media (max-width: 768px) {
     .hamburger {
@@ -706,5 +734,15 @@ a:hover {
         word-wrap: break-word;
         overflow-wrap: break-word;
         white-space: normal;
+    }
+
+    .skills-container {
+        margin: auto;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    canvas {
+        width: 100px !important;
+        height: 100px !important;
+        margin-bottom: 10px;
     }
 }

@@ -287,9 +287,6 @@ nav ul li a:hover {
     opacity: 1;
     animation: expand-center 0.4s forwards;
 }
-.nav-link.removing::after {
-    animation: contract-center 0.4s forwards;
-}
 
 @keyframes expand-center {
     0% {
@@ -299,17 +296,6 @@ nav ul li a:hover {
     100% {
       width: 70%;
       opacity: 1;
-    }
-}
-  
-@keyframes contract-center {
-    0% {
-      width: 70%;
-      opacity: 1;
-    }
-    100% {
-      width: 0;
-      opacity: 0;
     }
 }
 

@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const observerOptions = {
     rootMargin: "-30% 0px -30% 0px",
-    threshold: 0.3,
+    threshold: 0.1,
   };
 
   let currentActive = null;
@@ -123,16 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (entry.isIntersecting) {
         if (currentActive && currentActive !== navLink) {
           currentActive.classList.remove("active");
-          currentActive.classList.add("removing");
-          setTimeout(() => currentActive.classList.remove("removing"), 400);
         }
 
         navLink.classList.add("active");
         currentActive = navLink;
       } else if (navLink === currentActive) {
         navLink.classList.remove("active");
-        navLink.classList.add("removing");
-        setTimeout(() => navLink.classList.remove("removing"), 400);
         currentActive = null;
       }
     });

@@ -56,13 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const cursor = document.querySelector(".cursor");
 
-  const links = document.querySelectorAll("a");
+  const links = document.querySelectorAll("a, .view-cert-btn");
   const switchButton = document.querySelector(".switch");
   const carouselbtnLeft = document.querySelector(".left-btn");
   const carouselbtnRight = document.querySelector(".right-btn");
 
   const mouseExit = document.querySelectorAll(
-    "a, .switch, .left-btn, .right-btn"
+    "a, .switch, .left-btn, .right-btn, .view-cert-btn"
   );
 
   links.forEach((link) => {
@@ -101,6 +101,44 @@ document.querySelector(".logo").addEventListener("click", (event) => {
 window.addEventListener("scroll", function () {
   let header = document.querySelector("header");
   header.classList.toggle("scrolled", window.scrollY > 100);
+});
+
+// NAVBAR ANIMATION
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  const observerOptions = {
+    rootMargin: "-30% 0px -30% 0px",
+    threshold: 0.3,
+  };
+
+  let currentActive = null;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const id = entry.target.getAttribute("id");
+      const navLink = document.querySelector(`.nav-link[href="#${id}"]`);
+
+      if (entry.isIntersecting) {
+        if (currentActive && currentActive !== navLink) {
+          currentActive.classList.remove("active");
+          currentActive.classList.add("removing");
+          setTimeout(() => currentActive.classList.remove("removing"), 400);
+        }
+
+        navLink.classList.add("active");
+        currentActive = navLink;
+      } else if (navLink === currentActive) {
+        navLink.classList.remove("active");
+        navLink.classList.add("removing");
+        setTimeout(() => navLink.classList.remove("removing"), 400);
+        currentActive = null;
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach((section) => observer.observe(section));
 });
 
 // Typing effect of My Portfolio.
@@ -358,3 +396,23 @@ document.querySelectorAll(".skill-card").forEach((card) => {
     },
   });
 });
+
+// CERTFICATES JS
+function openCertificate(src) {
+  const certPopup = document.getElementById("certPopup");
+  const certContent = document.getElementById("certContent");
+
+  certContent.innerHTML = "";
+
+  if (src.endsWith(".pdf")) {
+    certContent.innerHTML = `<iframe src="${src}" width="100%" height="100%"></iframe>`;
+  } else {
+    certContent.innerHTML = `<img src="${src}" alt="Certificate">`;
+  }
+
+  certPopup.classList.add("active");
+}
+
+function closeCertificate() {
+  document.getElementById("certPopup").classList.remove("active");
+}

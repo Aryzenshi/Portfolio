@@ -18,7 +18,7 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#personal-life" class="nav-link">Personal Life</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </nav>
@@ -60,23 +60,44 @@
         <a href="#personal-life"><img src="assets/profile.jpg" alt="Profile Picture" class="profile-pic"></a>
         <div class="about-text">
             <h1>About Me</h1>
-            <p>I am a CSE undergraduate (2nd year) from VIT Vellore.</p>
-            <p>Date of Birth: 6-Dec-2005</p>
+            <p>Hi there! I'm Aaryav Rastogi, a second-year undergraduate pursuing Computer Science and Engineering at VIT Vellore.</p>
+            <p>
+                From crafting creative web experiences to experimenting with various open-source codes, 
+                I thrive at the intersection of logic and imagination. I'm passionate about:
+            </p>
+            <ul>
+                <li>🧠 Solving real-world problems with Python, C++, and Java</li>
+                <li>⚡ Exploring the future of AI with Quantum-Assisted Machine Learning</li>
+                <li>🎨 Designing sleek and interactive front-ends using HTML, CSS, and JavaScript</li>
+            </ul>
+            <p>
+                When I'm not coding or working on personal projects like Discord bots, 
+                I enjoy exploring strategy-based games and open-world experiences, which help me unwind and often inspire creative problem-solving.
+            </p>
+            <p>
+                I believe in continuous learning, clean code, and creative problem-solving — and I'm always excited to collaborate on meaningful tech projects.
+            </p>
         </div>
     </section>
     
     <section id="skills" class="fade-in" data-bg-image="url('assets/skills.jpg')">
         <h1>Skills</h1>
+        <h2>Languages</h2>
         <div class="skills-container">
             <div class="skill-card" data-skill="C" data-percent="70"></div>
             <div class="skill-card" data-skill="C++" data-percent="80"></div>
             <div class="skill-card" data-skill="Java" data-percent="75"></div>
             <div class="skill-card" data-skill="Python" data-percent="95"></div>
+        </div>
+        <br>
+        <h2>Web Technologies</h2>
+        <div class="skills-container">
             <div class="skill-card" data-skill="HTML" data-percent="90"></div>
             <div class="skill-card" data-skill="CSS" data-percent="90"></div>
             <div class="skill-card" data-skill="JavaScript" data-percent="80"></div>
-            <div class="skill-card" data-skill="ReactJS" data-percent="10"></div>
+            <div class="skill-card low-skill" data-skill="ReactJS" data-percent="10"></div>
         </div>
+        <h2></h2>
     </section>
     
     <section id="projects" class="fade-in" data-bg-image="url('assets/1projects.jpg')">
@@ -114,9 +135,15 @@
         <div class="carousel-dots"></div>
     </section>
 
-    <section id="personal-life" class="fade-in" data-bg-image="url('assets/life.jpg')">
-        <h1>Personal Life</h1>
-        <p>Here</p>
+    <section id="achievements" class="fade-in" data-bg-image="url('assets/life.jpg')">
+        <h1>Achievements and Certificates</h1>
+        <p>
+            <ul>
+                <li>⚙️ Participated in GDSC Hexathon 2023</li> <button class="view-cert-btn" onclick="openCertificate('./certificates/hexathon.pdf')">Certificate</button><br>
+                <li>✨ Attended a club outreach event <a href="https://shorturl.at/ndTR6" target="_blank">[post]</a></li><br>
+                <li>🔭 Active Core Member - VIT-Stellar, Official Astronomy Club at VIT</li><br>
+            </ul>
+        </p>
     </section>
     
     <section id="contact" class="fade-in" data-bg-image="url('assets/contact.jpg')">
@@ -150,5 +177,10 @@
             <path fill="currentColor" d="M15.1,14.9c-3-0.5-5.5-3-6-6C8.8,7.1,9.1,5.4,9.9,4c0.4-0.8-0.4-1.7-1.2-1.4C4.6,4,1.8,7.9,2,12.5c0.2,5.1,4.4,9.3,9.5,9.5c4.5,0.2,8.5-2.6,9.9-6.6c0.3-0.8-0.6-1.7-1.4-1.2C18.6,14.9,16.9,15.2,15.1,14.9z" />
         </symbol>
     </svg>
+    <!-- Popup Overlay -->
+    <div id="certPopup" class="cert-popup">
+        <span class="close-btn" onclick="closeCertificate()">&times;</span>
+        <div class="cert-content" id="certContent"></div>
+    </div>       
 </body>
 </html>

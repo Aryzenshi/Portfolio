@@ -5,7 +5,7 @@ Welcome to my personal portfolio website! This website showcases my projects, sk
 ## 🚀 Features
 - Interactive and responsive design
 - Showcases my projects and achievements
-- Contact form for easy communication
+- Contact options for easy communication
 - Optimized for performance and SEO
 
 ## 🛠️ Technologies Used

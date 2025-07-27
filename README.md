@@ -10,7 +10,6 @@ Welcome to my personal portfolio website! This website showcases my projects, sk
 
 ## 🛠️ Technologies Used
 - **Frontend:** HTML, CSS, JavaScript
-- **Backend (if applicable):** Node.js
 - **Other Tools:** Git, GitHub
 
 ## 📬 Contact

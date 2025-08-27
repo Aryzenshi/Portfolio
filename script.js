@@ -358,41 +358,6 @@ document.addEventListener("DOMContentLoaded", () => {
   updateDots();
 });
 
-// SKILLS GRID
-document.querySelectorAll(".skill-card").forEach((card) => {
-  const skill = card.getAttribute("data-skill");
-  const percent = card.getAttribute("data-percent");
-
-  card.innerHTML = `
-                <canvas id="chart-${skill}"></canvas>
-                <h3>${skill}</h3>
-                <p>Proficiency: ${percent}%</p>
-            `;
-
-  const ctx = document.getElementById(`chart-${skill}`).getContext("2d");
-  new Chart(ctx, {
-    type: "doughnut",
-    data: {
-      datasets: [
-        {
-          data: [percent, 100 - percent],
-          backgroundColor: ["#4CAF50", "#555"],
-          borderWidth: 0,
-        },
-      ],
-    },
-    options: {
-      responsive: false,
-      cutout: "60%",
-      rotation: 180,
-      plugins: {
-        legend: { display: false },
-        tooltip: { enabled: true },
-      },
-    },
-  });
-});
-
 // CERTFICATES JS
 function openCertificate(src) {
   const certPopup = document.getElementById("certPopup");

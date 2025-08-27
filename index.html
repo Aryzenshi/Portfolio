@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="script.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <header>
         <div class="logo">My Portfolio.</div>
@@ -23,36 +24,43 @@
             </ul>
         </nav>
         <div class="social-icons">
-            <a href="https://instagram.com/aar_yav_20" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://instagram.com/aar_yav_20" target="_blank" aria-label="Instagram"><i
+                    class="fab fa-instagram"></i></a>
             <a href="https://github.com/Aryzenshi" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/aaryav-rastogi" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://linkedin.com/in/aaryav-rastogi" target="_blank" aria-label="LinkedIn"><i
+                    class="fab fa-linkedin"></i></a>
         </div>
+
         <label class="switch">
             <input class="switch__input" type="checkbox" role="switch" name="dark" id="theme-toggle" />
-            <svg class="switch__icon" width="24px" height="24px" aria-hidden="true">
-                <use href="#light" />
-            </svg>
+
+            <span class="switch__inner"></span>
+
             <svg class="switch__icon" width="24px" height="24px" aria-hidden="true">
                 <use href="#dark" />
             </svg>
-            <span class="switch__inner"></span>
-            <span class="switch__inner-icons">
-                <svg class="switch__icon" width="24px" height="24px" aria-hidden="true">
-                    <use href="#light" />
-                </svg>
-                <svg class="switch__icon" width="24px" height="24px" aria-hidden="true">
-                    <use href="#dark" />
-                </svg>
-            </span>
+
+            <svg class="switch__icon" width="24px" height="24px" aria-hidden="true">
+                <use href="#light" />
+            </svg>
+
             <span class="switch__sr">Dark Mode</span>
         </label>
     </header>
-    
+
     <div class="cover" id="home">
         <div class="cover-content">
             <h1>Welcome to My Portfolio</h1>
             <p>Hi, I'm Aaryav Rastogi. A passionate CSE undergraduate from VIT Vellore.</p>
-            <a href="#about" class="cta-button">Explore More</a>
+            <div class="cta-container">
+                <!-- <a href="#about" class="cta-button exp">Explore More</a> -->
+                <a href="#contact" class="cta-button primary">
+                    Hire Me <i class="fas fa-paper-plane"></i>
+                </a>
+                <a href="assets/Aaryav Rastogi_Resume.pdf" target="_blank" class="cta-button secondary">
+                    View Resume <i class="fas fa-download"></i>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -60,9 +68,10 @@
         <a href="#personal-life"><img src="assets/profile.jpg" alt="Profile Picture" class="profile-pic"></a>
         <div class="about-text">
             <h1>About Me</h1>
-            <p>Hi there! I'm Aaryav Rastogi, a second-year undergraduate pursuing Computer Science and Engineering at VIT Vellore.</p>
+            <p>Hi there! I'm Aaryav Rastogi, a third-year undergraduate pursuing Computer Science and Engineering at
+                VIT Vellore.</p>
             <p>
-                From crafting creative web experiences to experimenting with various open-source codes, 
+                From crafting creative web experiences to experimenting with various open-source codes,
                 I thrive at the intersection of logic and imagination. I'm passionate about:
             </p>
             <ul>
@@ -71,87 +80,229 @@
                 <li>🎨 Designing sleek and interactive front-ends using HTML, CSS, and JavaScript</li>
             </ul>
             <p>
-                When I'm not coding or working on personal projects like Discord bots, 
-                I enjoy exploring strategy-based games and open-world experiences, which help me unwind and often inspire creative problem-solving.
+                When I'm not coding or working on personal projects like Discord bots,
+                I enjoy exploring strategy-based games and open-world experiences, which help me unwind and often
+                inspire creative problem-solving.
             </p>
             <p>
-                I believe in continuous learning, clean code, and creative problem-solving — and I'm always excited to collaborate on meaningful tech projects.
+                I believe in continuous learning, clean code, and creative problem-solving — and I'm always excited to
+                collaborate on meaningful tech projects.
             </p>
         </div>
     </section>
-    
-    <section id="skills" class="fade-in" data-bg-image="url('assets/skills.jpg')">
-        <h1>Skills</h1>
-        <h2>Languages</h2>
-        <div class="skills-container">
-            <div class="skill-card" data-skill="C" data-percent="70"></div>
-            <div class="skill-card" data-skill="C++" data-percent="80"></div>
-            <div class="skill-card" data-skill="Java" data-percent="75"></div>
-            <div class="skill-card" data-skill="Python" data-percent="95"></div>
+
+    <section id="skills" class="fade-in" data-bg-image="url('assets/skills1.png')">
+        <h1>My Skills</h1>
+        <div class="skills-grid">
+
+            <div class="skills-category">
+                <h3>Programming Languages</h3>
+                <div class="skills-list-progress">
+                    <div class="skill-item">
+                        <span class="skill-name">Python</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">C++</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Java</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">JavaScript</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">C</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>Web Development</h3>
+                <div class="skills-list-progress">
+                    <div class="skill-item">
+                        <span class="skill-name">HTML</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">CSS</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Flask</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>Developer Tools & Platforms</h3>
+                <div class="skills-list-progress">
+                    <div class="skill-item">
+                        <span class="skill-name">Git & GitHub</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width:90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">VS Code</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Linux</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-category">
+                <h3>Concepts & Soft Skills</h3>
+                <div class="skills-list">
+                    <span class="skill-pill">Data Structures & Algorithms</span>
+                    <span class="skill-pill">Object-Oriented Programming</span>
+                    <span class="skill-pill">DBMS & SQL</span>
+                    <span class="skill-pill">Operating Systems</span>
+                    <span class="skill-pill">Problem-solving</span>
+                    <span class="skill-pill">Teamwork</span>
+                    <span class="skill-pill">Public Speaking</span>
+                </div>
+            </div>
+
         </div>
-        <br>
-        <h2>Web Technologies</h2>
-        <div class="skills-container">
-            <div class="skill-card" data-skill="HTML" data-percent="90"></div>
-            <div class="skill-card" data-skill="CSS" data-percent="90"></div>
-            <div class="skill-card" data-skill="JavaScript" data-percent="80"></div>
-            <div class="skill-card low-skill" data-skill="ReactJS" data-percent="10"></div>
-        </div>
-        <h2></h2>
     </section>
-    
-    <section id="projects" class="fade-in" data-bg-image="url('assets/1projects.jpg')">
+
+    <section id="projects" class="fade-in" data-bg-image="url('assets/projects.png')">
         <h1>Projects</h1>
         <div class="carousel-container">
-            <button class="carousel-btn left-btn">&#10094;</button>  
+            <button class="carousel-btn left-btn">&#10094;</button>
             <div class="projects-carousel">
                 <div class="project-block">
-                    <h2>Discord Python Bot</h2>
-                    <p>A private repository on GitHub. The bot is made completely in Python with SQL integration for managing user logins and a captcha while registering.</p>
+                    <h2>Parking Lot Management System</h2>
+                    <p>A simple parking lot managing system made in c++.</p>
+                    <p>This is a simple console-based Parking Lot Management System written in C++. It allows for the
+                        management of parking slots for both cars and bikes, keeping track of vehicle entry, exit, and
+                        displaying parking status.</p>
+                    <a href="https://github.com/Aryzenshi/ParkingLotSystem.git" target="_blank" class="project-link"><i
+                            class="fab fa-github"></i> Parking Lot Management System</a>
+                </div>
+                <div class="project-block">
+                    <h2>Hotel Management System</h2>
+                    <p>A simple console-based hotel managing system made in python application designed to manage hotel
+                        room bookings, check-ins, and check-outs efficiently.</p>
+                    <p>This tool allows a secure login to the SQL server and access rules set up by the hotel.</p>
+                    <p></p>
+                    <a href="https://github.com/Aryzenshi/HMS" target="_blank" class="project-link"><i
+                            class="fab fa-github"></i> Hotel Management System</a>
                 </div>
                 <div class="project-block">
                     <h2>Valentine's Day Website Template</h2>
                     <p>A website template for Valentine's Day!</p>
-                    <p>The website template is hosted on GitHub pages as well as the source code is available on GitHub.</p>
-                    <a href="https://aryzenshi.github.io/Valentine-s-Day/" target="_blank" class="project-link"><i class="fa-solid fa-globe"></i> Valentine's Day Template</a>
-                    <a href="https://github.com/Aryzenshi/Valentine-s-Day" target="_blank" class="project-link"><i class="fab fa-github"></i> Source Code</a>
+                    <p>The website template is hosted on GitHub pages as well as the source code is available on GitHub.
+                    </p>
+                    <a href="https://aryzenshi.github.io/Valentine-s-Day/" target="_blank" class="project-link"><i
+                            class="fa-solid fa-globe"></i> Valentine's Day Template</a>
+                    <a href="https://github.com/Aryzenshi/Valentine-s-Day" target="_blank" class="project-link"><i
+                            class="fab fa-github"></i> Source Code</a>
                 </div>
                 <div class="project-block">
-                    <h2>Parking Lot Management System</h2>
-                    <p>A simple parking lot managing system made in c++.</p>
-                    <p>This is a simple console-based Parking Lot Management System written in C++. It allows for the management of parking slots for both cars and bikes, keeping track of vehicle entry, exit, and displaying parking status.</p>
-                    <a href="https://github.com/Aryzenshi/ParkingLotSystem.git" target="_blank" class="project-link"><i class="fab fa-github"></i> Parking Lot Management System</a>
-                </div>
-                <div class="project-block">
-                    <h2>Hotel Management System</h2>
-                    <p>A simple console-based hotel managing system made in python application designed to manage hotel room bookings, check-ins, and check-outs efficiently.</p>
-                    <p>This tool allows a secure login to the SQL server and access rules set up by the hotel.</p>
-                    <p></p>
-                    <a href="https://github.com/Aryzenshi/HMS" target="_blank" class="project-link"><i class="fab fa-github"></i> Hotel Management System</a>
+                    <h2>Discord Python Bot</h2>
+                    <p>A private repository on GitHub. The bot is made completely in Python with SQL integration for
+                        managing user logins and a captcha while registering.</p>
                 </div>
             </div>
-            <button class="carousel-btn right-btn">&#10095;</button>  
+            <button class="carousel-btn right-btn">&#10095;</button>
         </div>
         <div class="carousel-dots"></div>
     </section>
 
     <section id="achievements" class="fade-in" data-bg-image="url('assets/life.jpg')">
-        <h1>Achievements and Certificates</h1>
-        <p>
-            <ul>
-                <li>⚙️ Participated in GDSC Hexathon 2023</li> <button class="view-cert-btn" onclick="openCertificate('./certificates/hexathon.pdf')">Certificate</button><br>
-                <li>✨ Attended a club outreach event <a href="https://www.linkedin.com/posts/subhra-dey-a03565252_outreach-vitstellar-stemeducation-ugcPost-7261246879269560320-bSyw?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEeVybUBaKc6NSr0r_alVEpcWvKXWaVDKqM" target="_blank">[post]</a></li><br>
-                <li>🔭 Active Core Member - VIT-Stellar, Official Astronomy Club at VIT</li><br>
-            </ul>
-        </p>
+        <h1>Achievements and Certifications</h1>
+        <div class="certifications-grid">
+            <div class="cert-item">
+                <img src="assets/icons/google-cloud.png" alt="Google Cloud" class="cert-icon">
+                <span>Develop GenAI Apps with Gemini and Streamlit, Google Cloud - Jun 2025</span>
+                <button class="view-cert-btn"
+                    onclick="window.open('https:/\/www.credly.com/badges/0ae0d645-d975-4126-b168-90c21ec5cd30/public_url','_blank')">View
+                    Badge</button>
+            </div>
+            <div class="cert-item">
+                <img src="assets/icons/ibm.png" alt="IBM SkillsBuild" class="cert-icon">
+                <span>Getting Started with Artificial Intelligence, IBM SkillsBuild - Jun 2025</span>
+                <button class="view-cert-btn"
+                    onclick="window.open('https:/\/www.credly.com/badges/a537ac21-fb97-4b11-bbfd-df6d46a5f5a4/public_url','_blank')">View
+                    Badge</button>
+            </div>
+            <div class="cert-item">
+                <img src="assets/icons/google-cloud.png" alt="Google Cloud" class="cert-icon">
+                <span>Inspect Rich Documents with Gemini Multimodality and Multimodal RAG, Google Cloud - Jun
+                    2025</span>
+                <button class="view-cert-btn"
+                    onclick="window.open('https:/\/www.credly.com/badges/6b4c7384-999e-41c9-8bb5-d11ade5f668c/public_url','_blank')">View
+                    Badge</button>
+            </div>
+            <div class="cert-item">
+                <img src="assets/icons/ibm.png" alt="IBM SkillsBuild" class="cert-icon">
+                <span>Journey to Cloud: Envisioning Your Solution, IBM SkillsBuild - Jun 2025</span>
+                <button class="view-cert-btn"
+                    onclick="window.open('https:/\/www.credly.com/badges/354c70e0-0645-4358-a952-3b9f95532ce0/public_url','_blank')">View
+                    Badge</button>
+            </div>
+            <div class="cert-item">
+                <img src="assets/icons/google-cloud.png" alt="Google Cloud" class="cert-icon">
+                <span>Prompt Design in Vertex AI, Google Cloud - Jun 2025</span>
+                <button class="view-cert-btn"
+                    onclick="window.open('https:/\/www.credly.com/badges/b3d3c1db-51c1-45ff-92cb-237f97d06962/public_url','_blank')">View
+                    Badge</button>
+            </div>
+            <div class="cert-item">
+                <img src="assets/icons/gdsc.png" alt="GDSC" class="cert-icon">
+                <span>Participated in GDSC Hexathon - 2023</span>
+                <button class="view-cert-btn" onclick="openCertificate('./certificates/hexathon.pdf')">View
+                    Certificate</button>
+            </div>
+            <div class="cert-item">
+                <img src="assets/icons/stellar.png" alt="VIT Stellar" class="cert-icon">
+                <span>Club Outreach Event (Springdays Schools)- 2024</span>
+                <button class="view-cert-btn"
+                    onclick="window.open('https:/\/www.linkedin.com/posts/subhra-dey-a03565252_outreach-vitstellar-stemeducation-ugcPost-7261246879269560320-bSyw','_blank')">[POST]</button>
+            </div>
+        </div>
     </section>
-    
+
     <section id="contact" class="fade-in" data-bg-image="url('assets/contact.jpg')">
         <h1>Contact Me</h1>
-        <p><i class="fa-regular fa-envelope"></i> Email: <a href="#" class="email-link">aaryav.rastogi.2005@gmail.com</a></p>
-        <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://linkedin.com/in/aaryav-rastogi" target="_blank">Aaryav Rastogi</a></p>
-        <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/Aryzenshi" target="_blank">Aaryav Rastogi [Aryzenshi]</a></p>
-        <p id="mobile-insta"><i class="fab fa-instagram"></i> Instagram: <a href="https://instagram.com/aar_yav_20" target="_blank"> @aar_yav_20</a></i></p>
+        <p><i class="fa-regular fa-envelope"></i> Email: <a href="#"
+                class="email-link">aaryav.rastogi.2005@gmail.com</a></p>
+        <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://linkedin.com/in/aaryav-rastogi"
+                target="_blank">Aaryav Rastogi</a></p>
+        <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/Aryzenshi" target="_blank">Aaryav Rastogi
+                [Aryzenshi]</a></p>
+        <p id="mobile-insta"><i class="fab fa-instagram"></i> Instagram: <a href="https://instagram.com/aar_yav_20"
+                target="_blank"> @aar_yav_20</a></i></p>
     </section>
 
     <footer>
@@ -174,13 +325,15 @@
             <circle fill="currentColor" cx="12" cy="12" r="5" />
         </symbol>
         <symbol id="dark" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M15.1,14.9c-3-0.5-5.5-3-6-6C8.8,7.1,9.1,5.4,9.9,4c0.4-0.8-0.4-1.7-1.2-1.4C4.6,4,1.8,7.9,2,12.5c0.2,5.1,4.4,9.3,9.5,9.5c4.5,0.2,8.5-2.6,9.9-6.6c0.3-0.8-0.6-1.7-1.4-1.2C18.6,14.9,16.9,15.2,15.1,14.9z" />
+            <path fill="currentColor"
+                d="M15.1,14.9c-3-0.5-5.5-3-6-6C8.8,7.1,9.1,5.4,9.9,4c0.4-0.8-0.4-1.7-1.2-1.4C4.6,4,1.8,7.9,2,12.5c0.2,5.1,4.4,9.3,9.5,9.5c4.5,0.2,8.5-2.6,9.9-6.6c0.3-0.8-0.6-1.7-1.4-1.2C18.6,14.9,16.9,15.2,15.1,14.9z" />
         </symbol>
     </svg>
     <!-- Popup Overlay -->
     <div id="certPopup" class="cert-popup">
         <span class="close-btn" onclick="closeCertificate()">&times;</span>
         <div class="cert-content" id="certContent"></div>
-    </div>       
+    </div>
 </body>
+
 </html>

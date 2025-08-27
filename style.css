@@ -15,6 +15,7 @@
     --body-font: 'Montserrat', sans-serif;
     --heading-font: 'heading-font', sans-serif;
     /* COLORS */
+    --sPill-color: #eef6ff;
     --bg-color: linear-gradient(180deg, #BCB9BA, #E9E4F0, #D3CCE3);
     --text-color: #2c2f3e;
     --grad-sect-color: rgba(255, 244, 248, 0.5);
@@ -59,6 +60,7 @@
 }
 
 .dark-mode {
+    --sPill-color: #2c2f3e;
     --bg-color: linear-gradient(180deg, #2c2a29, #434343, #2c2a29);
     --text-color: #eef6ff;
     --grad-sect-color: rgba(255, 255, 255, 0.3);
@@ -511,7 +513,7 @@ section .content {
     gap: 50px;
     position: relative;
     overflow: hidden;
-    padding: 50px;
+    padding: 1.2rem;
     border-radius: 12px;
 }
 
@@ -929,7 +931,7 @@ a:hover {
 }
 
 .skill-pill {
-    background-color: var(--bg-color);
+    background-color: var(--sPill-color);
     color: var(--text-color);
     padding: 8px 16px;
     border-radius: 20px;
@@ -941,7 +943,7 @@ a:hover {
 
 .skill-pill:hover {
     transform: translateY(-2px);
-    background-color: var();
+    filter: saturate(2.5);
 }
 
 /* CERTIFICATE DISPLAY */
@@ -1120,10 +1122,22 @@ a:hover {
         display: none;
     }
 
+    .cta-container {
+        flex-direction: column;
+        width: fit-content;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .cta-button {
+        justify-content: center;
+    }
+
     .profile-pic {
         width: 200px;
         height: 200px;
         margin-bottom: 0;
+        margin-top: 10%;
     }
 
     .about-section {
@@ -1196,6 +1210,10 @@ a:hover {
     .cert-item span {
         margin: 0;
         text-align: left;
+    }
+
+    .nav-link::after {
+        display: none;
     }
 }
 
